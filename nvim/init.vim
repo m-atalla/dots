@@ -17,6 +17,7 @@ set nohlsearch
 set noerrorbells
 set nowrap
 set noswapfile
+
 " Some LSPs have issues with backup file.
 set nobackup
 set nowritebackup
@@ -34,9 +35,13 @@ set signcolumn=yes
 
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
+
+    " Telescope junk
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+
+    " LS, syntax highlighting
     Plug 'neovim/nvim-lspconfig'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -51,10 +56,27 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+
 lua <<EOF
+
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true, 
   },
+  indent = {
+      enable = true
+  }
+}
+
+local actions = require('telescope.actions')
+require('telescope').setup {
+    defaults = {
+        mappings = {
+            i = {
+                ['<A-v>'] = actions.select_vertical,
+                ['A-h'] = actions.select_horizontal,
+            }
+        }
+    }
 }
 EOF
