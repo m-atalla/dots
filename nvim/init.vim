@@ -32,8 +32,10 @@ set incsearch
 
 set scrolloff=8
 set signcolumn=yes
+set termguicolors
 
 call plug#begin('~/.vim/plugged')
+    " Colorscheme
     Plug 'gruvbox-community/gruvbox'
 
     " Telescope junk
@@ -45,6 +47,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    " Status line
+    Plug 'nvim-lualine/lualine.nvim'
+
+    Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 colorscheme gruvbox
@@ -77,6 +84,13 @@ require('telescope').setup {
                 ['A-h'] = actions.select_horizontal,
             }
         }
+    }
+}
+
+require('lualine').setup {
+    options = { theme = 'gruvbox_dark' },
+    sections = {
+        lualine_x = {'filetype'}
     }
 }
 EOF
