@@ -1,4 +1,5 @@
 # Colors (Gruvbox Material Dark Medium)
+# src: https://github.com/eendroroy/alacritty-theme
 colors:
   primary:
     background: '0x282828'
