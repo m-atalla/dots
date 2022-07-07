@@ -83,6 +83,10 @@ require('telescope').setup {
                 ['<A-v>'] = actions.select_vertical,
                 ['A-h'] = actions.select_horizontal,
             }
+        },
+        file_ignore_patterns = {
+            "node_modules",
+            "target"
         }
     }
 }
