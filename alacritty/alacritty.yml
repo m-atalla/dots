@@ -1,3 +1,8 @@
+window:
+  padding:
+    x: 4
+    y: 0
+
 # Colors (Gruvbox Material Dark Medium)
 # src: https://github.com/eendroroy/alacritty-theme
 colors:
