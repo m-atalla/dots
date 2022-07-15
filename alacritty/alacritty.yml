@@ -3,6 +3,13 @@ window:
     x: 4
     y: 0
 
+# Nerd fonts ref:
+# # https://www.nerdfonts.com/font-downloads 
+# AUR package:
+# # https://aur.archlinux.org/packages/nerd-fonts-cascadia-code
+font:
+  family: "Cascadia Code"
+
 # Colors (Gruvbox Material Dark Medium)
 # src: https://github.com/eendroroy/alacritty-theme
 colors:
