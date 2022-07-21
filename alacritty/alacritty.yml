@@ -8,7 +8,20 @@ window:
 # AUR package:
 # # https://aur.archlinux.org/packages/nerd-fonts-cascadia-code
 font:
-  family: "Cascadia Code"
+  normal:
+    family: "CaskaydiaCove Nerd Font"
+    style: Regular
+  bold:
+    family: "CaskaydiaCove Nerd Font"
+    style: Bold
+  italic:
+    family: "CaskaydiaCove Nerd Font"
+    style: Bold
+    style: Italic
+  bold_italic:
+    family: "CaskaydiaCove Nerd Font"
+    style: Bold Italic
+  size: 13
 
 # Colors (Gruvbox Material Dark Medium)
 # src: https://github.com/eendroroy/alacritty-theme
