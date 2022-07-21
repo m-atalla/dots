@@ -32,7 +32,12 @@ set incsearch
 
 set scrolloff=8
 set signcolumn=yes
+
+" use term colors
 set termguicolors
+
+" use term font
+set guifont
 
 call plug#begin('~/.vim/plugged')
     " Colorscheme
