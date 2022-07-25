@@ -27,6 +27,10 @@ set undofile
 " JSONC 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+" Rust Analyzer
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['rust-analyzer'],
+\ }
 " Highlights search term as it is being written
 set incsearch
 
@@ -35,9 +39,6 @@ set signcolumn=yes
 
 " use term colors
 set termguicolors
-
-" use term font
-set guifont
 
 call plug#begin('~/.vim/plugged')
     " Colorscheme
@@ -57,8 +58,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lualine/lualine.nvim'
 
     Plug 'lukas-reineke/indent-blankline.nvim'
+
+    " Neogit (nvim magit clone)
+    Plug 'TimUntersberger/neogit'
+
+    " " Additional gruvbox theme... disabled.
+    " Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
+" Colorscheme
 colorscheme gruvbox
 
 let mapleader = " "
@@ -68,8 +76,17 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" Neogit 
+nnoremap <leader>gg <cmd>Neogit<cr>
+nnoremap <leader>gl <cmd>Neogit log<cr>
+
 
 lua <<EOF
+local neogit = require('neogit')
+
+neogit.setup {
+    disable_commit_confirmation = true,
+}
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
